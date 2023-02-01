@@ -7,7 +7,6 @@ function App() {
     <div className="App">
       <Nav />
       <ListOfNews />
-      <h1>Hello</h1>
     </div>
   );
 }
