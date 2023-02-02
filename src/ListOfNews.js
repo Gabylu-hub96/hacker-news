@@ -3,6 +3,17 @@ import React, { useState } from "react";
 
 export default function ListOfNews(props) {
   const { query } = props;
+  const fetchData = () => {
+    fetch(
+      "https://hn.algolia.com/api/v1/search_by_date?query=openai&tags=story"
+    )
+      .then((response) => response.json())
+      .then((data) => setNews(data.hits));
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     {news.length > 0 && (
       <div className="list-group my-5">
