@@ -1,24 +1,29 @@
-import React from "react";
+import "./App.css";
+import React, { useState } from "react";
 
-const ul = document.getElementById("root");
-const url =
-  "https://hn.algolia.com/api/v1/search_by_date?query=openai&tags=story";
-
-const renderNews = (data) => {
-  const news = data.hits;
-  console.debug({ news });
-
-  return news.map((newsItem) => {
-    return (ul.innerHTML += `<p>${newsItem.title}</p>`);
-  });
-};
-
-fetch(url)
-  .then((response) => response.json())
-  .then((response) => renderNews(response));
-
-function ListOfNews() {
-  return <div>TEST</div>;
+export default function ListOfNews(props) {
+  const { query } = props;
+  return (
+    {news.length > 0 && (
+      <div className="list-group my-5">
+        {news.map((newsItem) => (
+          <a
+            href={newsItem.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="list-group-item list-group-item-action"
+            aria-current="true"
+            key={newsItem.objectID}
+          >
+            <div className="d-flex w-100 justify-content-between">
+              <h5 className="mb-1">{newsItem.title}</h5>
+              <small>{newsItem.created_at}</small>
+            </div>
+            <p className="mb-1">{newsItem.story_text}</p>
+            <small>By {newsItem.author}</small>
+          </a>
+        ))}
+      </div>
+    )}
+  );
 }
-
-export default ListOfNews;
