@@ -2,17 +2,12 @@ import "./App.css";
 import React, { useState } from "react";
 
 export default function Search({ handleSearch }) {
-  // const [searchInput, setSearchInput] = useState("");
   const [query, setQuery] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const newQuery = { query };
-    // setQuery(query);
     handleSearch(query);
-    // console.log(query);
   };
   const handleChange = (e) => {
-    console.log(e.target.value);
     setQuery(e.target.value);
   };
   return (

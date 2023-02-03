@@ -15,9 +15,10 @@ export default function ListOfNews(props) {
   useEffect(() => {
     fetchData();
   }, [query]);
-  return (
-    <>
-      {news.length > 0 && (
+
+  if (news.length > 0) {
+    return (
+      <>
         <div className="list-group my-5">
           {news.map((newsItem) => (
             <a
@@ -37,7 +38,9 @@ export default function ListOfNews(props) {
             </a>
           ))}
         </div>
-      )}
-    </>
-  );
+      </>
+    );
+  } else {
+    return <div>Nothing to see here</div>;
+  }
 }
