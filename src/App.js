@@ -39,13 +39,13 @@ function App() {
     indexOfFirstPost,
     indexOfLastPost
   );
-  console.log(currentPosts);
+
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
-      <div className="App">
+      <div>
         <Nav posts={currentPosts} setSearchInput={setSearchInput} />
         <article className="container mt-3">
           <ul list-style="none">
