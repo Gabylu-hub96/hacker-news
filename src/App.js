@@ -14,7 +14,7 @@ function App() {
       <nav className="navbar bg-primary" data-bs-theme="dark">
         <div className="container">
           <a href="http://localhost:3000" className="navbar-brand">
-            Logo
+            AHNS - Awesome Hacker News Search
           </a>
           <Search handleSearch={handleSearch} />
         </div>
