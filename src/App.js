@@ -24,11 +24,22 @@ function App() {
       });
   }, []);
 
-  // Get current posts
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  // assign each post a number that remains even after filtering
+  for (let index = 0; index < posts.length; index++) {
+    posts[index].assignedNumber = index;
+  }
 
+  // Get current posts
+  let postsLeftAfterFilter = posts.filter((post) =>
+    post.title.toLowerCase().includes(searchInput.toLowerCase())
+  );
+  let indexOfLastPost = currentPage * postsPerPage;
+  let indexOfFirstPost = indexOfLastPost - postsPerPage;
+  let currentPosts = postsLeftAfterFilter.slice(
+    indexOfFirstPost,
+    indexOfLastPost
+  );
+  console.log(currentPosts);
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -37,7 +48,7 @@ function App() {
       <div className="App">
         <Nav posts={currentPosts} setSearchInput={setSearchInput} />
         <article className="container mt-3">
-          <ol>
+          <ul list-style="none">
             {currentPosts
               .filter((post) =>
                 post.title.toLowerCase().includes(searchInput.toLowerCase())
@@ -47,7 +58,7 @@ function App() {
                   <h5>
                     <li key={post.objectID}>
                       <a href={post.url} target="_blank">
-                        {post.title}.
+                        {post.assignedNumber + 1}. {post.title}.
                       </a>
                     </li>
                   </h5>
@@ -59,11 +70,11 @@ function App() {
                   <hr />
                 </div>
               ))}
-          </ol>
+          </ul>
         </article>
         <Pagination
           postsPerPage={postsPerPage}
-          totalPosts={posts.length}
+          totalPosts={postsLeftAfterFilter.length}
           paginate={paginate}
         />
       </div>
