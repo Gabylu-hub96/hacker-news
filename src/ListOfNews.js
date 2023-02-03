@@ -41,6 +41,10 @@ export default function ListOfNews(props) {
       </>
     );
   } else {
-    return <div>Nothing to see here</div>;
+    return (
+      <div className="list-group my-5">
+        <h2>Nothing to see here. Please search for something else.</h2>
+      </div>
+    );
   }
 }
