@@ -1,16 +1,24 @@
 import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
-function Nav({ posts, setSearchInput }) {
+function Navigation({ posts, setSearchInput }) {
   const handleSubmit = (e) => e.preventDefault();
 
   const handleSearchChange = (e) => {
     setSearchInput(e.target.value);
   };
   return (
-    <div>
-      <nav className="navbar bg-primary" data-bs-theme="dark">
-        <div className="container-fluid">
-          <a className="navbar-brand">Logo</a>
+    <>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+          </Nav>
           <form className="d-flex" role="search">
             <input
               className="form-control me-2"
@@ -26,10 +34,10 @@ function Nav({ posts, setSearchInput }) {
               Search
             </button>
           </form>
-        </div>
-      </nav>
-    </div>
+        </Container>
+      </Navbar>
+    </>
   );
 }
 
-export default Nav;
+export default Navigation;
