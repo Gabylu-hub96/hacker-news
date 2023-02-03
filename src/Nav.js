@@ -1,10 +1,10 @@
 import React from "react";
 
-function Nav({ posts, setSeachInput }) {
+function Nav({ posts, setSearchInput }) {
   const handleSubmit = (e) => e.preventDefault();
 
   const handleSearchChange = (e) => {
-    setSeachInput(e.target.value);
+    setSearchInput(e.target.value);
   };
   return (
     <div>

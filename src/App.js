@@ -6,7 +6,7 @@ import Pagination from "./components/Pagination";
 
 function App() {
   const [posts, setPost] = useState([]);
-  const [searchInput, setSeachInput] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
 
@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <Nav posts={currentPosts} setSeachInput={setSeachInput} />
+        <Nav posts={currentPosts} setSearchInput={setSearchInput} />
         <article className="container mt-3">
           <ol>
             {currentPosts
