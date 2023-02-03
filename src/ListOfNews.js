@@ -69,7 +69,7 @@ export default function ListOfNews(props) {
   } else if (connErr === false) {
     return (
       <div className="my-5">
-        <h2>Nothing to see here. Please search for something else.</h2>
+        <h2>Nothing to see here. Please search for something else...</h2>
       </div>
     );
   } else {
