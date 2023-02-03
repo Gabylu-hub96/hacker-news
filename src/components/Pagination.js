@@ -7,8 +7,8 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     pageNumbers.push(i);
   }
   return (
-    <nav>
-      <ul className="pagination">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
             <a onClick={() => paginate(number)} href="!#" className="page-link">

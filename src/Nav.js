@@ -2,6 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import "./App.css";
 
 function Navigation({ posts, setSearchInput }) {
   const handleSubmit = (e) => e.preventDefault();
@@ -11,9 +12,9 @@ function Navigation({ posts, setSearchInput }) {
   };
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">GR-2</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#features">Features</Nav.Link>
@@ -30,7 +31,8 @@ function Navigation({ posts, setSearchInput }) {
             <button
               className="btn btn-success"
               type="submit"
-              onClick={handleSubmit}>
+              onClick={handleSubmit}
+            >
               Search
             </button>
           </form>

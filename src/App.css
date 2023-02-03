@@ -17,6 +17,11 @@
   color: black;
 }
 
+.container li {
+  text-decoration: none;
+  list-style: none;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -39,4 +44,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+.color-text {
+  color: white;
 }
