@@ -14,7 +14,7 @@ export default function ListOfNews(props) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [query]);
   return (
     <>
       {news.length > 0 && (

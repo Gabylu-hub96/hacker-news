@@ -40,8 +40,10 @@ function App() {
       });
   }, []);
  */
-  const [data, setData] = useState("");
-  const childToParent = () => {};
+  const [query, setQuery] = useState("*");
+  const handleSearch = (query) => {
+    setQuery(query);
+  };
 
   return (
     <div className="App">
@@ -50,11 +52,11 @@ function App() {
           <a href="http://localhost:3000" className="navbar-brand">
             Logo
           </a>
-          <Search childToParent={childToParent} />
+          <Search handleSearch={handleSearch} />
         </div>
       </nav>
       <div className="container">
-        <ListOfNews query="teaching" />
+        <ListOfNews query={query} />
       </div>
     </div>
   );
