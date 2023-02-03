@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 
-export default function Search() {
+export default function Search(childToParent) {
   // const [searchInput, setSearchInput] = useState("");
   const [query, setQuery] = useState("");
   const handleSubmit = (e) => {
