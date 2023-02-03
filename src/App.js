@@ -1,13 +1,12 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Nav from "./Nav";
-// import Posts from './components/Pagination';
 import axios from "axios";
 import Pagination from "./components/Pagination";
 
 function App() {
   const [posts, setPost] = useState([]);
-  const [searchInput, setSeachInput] = useState([]);
+  const [searchInput, setSeachInput] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
 
@@ -37,28 +36,29 @@ function App() {
     <>
       <div className="App">
         <Nav posts={currentPosts} setSeachInput={setSeachInput} />
-
         <article className="container mt-3">
           <ol>
-            {currentPosts.map(
-              ({ title, url, points, num_comments, author, objectID }) => (
+            {currentPosts
+              .filter((post) =>
+                post.title.toLowerCase().includes(searchInput.toLowerCase())
+              )
+              .map((post) => (
                 <div>
                   <h5>
-                    <li key={objectID}>
-                      <a href={url} target="_blank">
-                        {title}.
+                    <li key={post.objectID}>
+                      <a href={post.url} target="_blank">
+                        {post.title}.
                       </a>
                     </li>
                   </h5>
 
                   <p>
-                    {points} points by {author} {d.getHours()} hours ago | Hide
-                    | comments: {num_comments}
+                    {post.points} points by {post.author} {d.getHours()} hours
+                    ago | Hide | comments: {post.num_comments}
                   </p>
                   <hr />
                 </div>
-              )
-            )}
+              ))}
           </ol>
         </article>
         <Pagination
