@@ -4,10 +4,7 @@ function Nav({ posts, setSeachInput }) {
   const handleSubmit = (e) => e.preventDefault();
 
   const handleSearchChange = (e) => {
-    if (!e.target.value) return setSeachInput(posts);
-    const res = posts.filter((item) => item.title.includes(e.target.value));
-
-    setSeachInput(res);
+    setSeachInput(e.target.value);
   };
   return (
     <div>
@@ -25,8 +22,7 @@ function Nav({ posts, setSeachInput }) {
             <button
               className="btn btn-success"
               type="submit"
-              onClick={handleSubmit}
-            >
+              onClick={handleSubmit}>
               Search
             </button>
           </form>
